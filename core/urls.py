@@ -3,9 +3,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from .views import HomeView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     path('accounts/', include('allauth.urls')),
+
+    path('', HomeView.as_view(), name="home"),
     path('marketplace/', include ('marketplace.urls', namespace="marketplace")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
